@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Изменено название -->
+    <title>TURAN UNITY - Железнодорожные перевозки в Казахстане</title>
+    <style>
+        /* Основные стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Шапка */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #FFA500;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #FFA500;
+        }
+        
+        /* Герой секция */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1516054575922-f0b8eeadec1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #FFA500;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e69500;
+        }
+        
+        /* Услуги */
+        .services {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #003366;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card i {
+            font-size: 50px;
+            color: #FFA500;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: #003366;
+        }
+        
+        /* О компании */
+        .about {
+            background-color: #003366;
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            margin-bottom: 20px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        
+        /* Контакты */
+        .contact {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* Подвал */
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: #FFA500;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Изменено название -->
+                <div class="logo">TURAN <span>UNITY</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#about">О компании</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                        <!-- Изменен контактный номер -->
+                        <li><a href="tel:+77755213092">+7 775 521 30 92</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="container">
+            <h1>Железнодорожные грузоперевозки по Казахстану и СНГ</h1>
+            <p>Быстрая, безопасная и выгодная логистика для вашего бизнеса. Профессиональные решения с 2010 года.</p>
+            <a href="#contact" class="btn">Оставить заявку</a>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-train"></i>
+                    <h3>Железнодорожные перевозки</h3>
+                    <p>Перевозка грузов любого типа по территории Казахстана и за его пределы с соблюдением всех норм безопасности.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-boxes"></i>
+                    <h3>Контейнерные перевозки</h3>
+                    <p>Доставка грузов в контейнерах 20 и 40 футов с возможностью отслеживания в режиме реального времени.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-warehouse"></i>
+                    <h3>Складские услуги</h3>
+                    <p>Ответственное хранение ваших грузов на современных складах с системой климат-контроля.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-passport"></i>
+                    <h3>Таможенное оформление</h3>
+                    <p>Полный комплекс услуг по таможенному оформлению грузов на границах Казахстана.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Мультимодальные перевозки</h3>
+                    <p>Комбинированные перевозки с использованием железной дороги и автотранспорта для оптимальной логистики.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Страхование грузов</h3>
+                    <p>Надежная защита ваших грузов от всех рисков во время транспортировки и хранения.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О компании -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">О компании</h2>
+                    <!-- Изменено название -->
+                    <p>TURAN UNITY - ведущий оператор железнодорожных грузоперевозок в Казахстане. Наша компания работает на рынке с 2010 года и за это время зарекомендовала себя как надежный партнер для сотен компаний.</p>
+                    <p>Мы предлагаем полный комплекс логистических услуг от перевозки до таможенного оформления. Наш парк насчитывает более 150 вагонов различного типа, что позволяет нам оперативно решать задачи любой сложности.</p>
+                    <p>Основные направления: перевозки в Китай, Россию, страны Центральной Азии и Европы.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1556740734-4f6abf6a1c38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Железнодорожные перевозки">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Услуга</label>
+                        <select id="service">
+                            <option value="rail">Железнодорожные перевозки</option>
+                            <option value="container">Контейнерные перевозки</option>
+                            <option value="customs">Таможенное оформление</option>
+                            <option value="multimodal">Мультимодальные перевозки</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <!-- Изменено название -->
+                    <h3>TURAN UNITY</h3>
+                    <p>Профессиональные железнодорожные перевозки грузов по Казахстану и за его пределы.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Нур-Султан, ул. Железнодорожная, 15</p>
+                    <!-- Изменен контактный номер -->
+                    <p><i class="fas fa-phone"></i> +7 775 521 30 92</p>
+                    <p><i class="fas fa-envelope"></i> info@turanunity.kz</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Социальные сети</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 TURAN UNITY. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
